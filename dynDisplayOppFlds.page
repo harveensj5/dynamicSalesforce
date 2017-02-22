@@ -1,0 +1,31 @@
+<!--------------------------------------------
+
+--------------------------------------------->
+
+<apex:page controller="dynDisplayOppFldsCtrl" sidebar="false" tabStyle="Opportunity"> 
+    
+   <apex:form >
+    <apex:pageMessages />   
+      <apex:pageBlock title="New Opportunity">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Ok" action="{!displayDynFlds}" rendered="{!If(Open == False,True,False)}"/>
+            <apex:commandButton value="Save Opportunity" action="{!saveOpp}" rendered="{!open}"/>
+            <apex:commandButton value="Cancel" action="cancel"/>            
+        </apex:pageBlockButtons>  
+        <apex:pageBlockSection columns="2">
+            
+            <apex:inputField value="{!ObjOpp.Picklist_A__c}" required="true"/>
+            <apex:inputField value="{!ObjOpp.Picklist_B__c}" required="true"/>
+            
+            <apex:inputField value="{!ObjOpp.Name}"/>
+            <apex:inputField value="{!ObjOpp.AccountId}"/>
+            <apex:inputField value="{!ObjOpp.Amount}"/>
+            <apex:inputField value="{!ObjOpp.CloseDate}"/>
+            <apex:inputField value="{!ObjOpp.StageName}"/>
+        </apex:pageBlockSection> 
+        
+        <apex:dynamicComponent componentValue="{!dynDetails}" id="dynCompId" rendered="{!Open}"/>
+      </apex:pageBlock>  
+   </apex:form>  
+  
+</apex:page>

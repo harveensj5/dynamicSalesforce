@@ -1,0 +1,10 @@
+<!-----------------------------------------------
+
+------------------------------------------------>
+<apex:page controller="dynOppsBasedOnStgCtrl" sidebar="false" tabStyle="Opportunity">
+
+  <apex:form >
+
+      <apex:dynamicComponent id="dynCompId" componentValue="{!dynDetails}"/>      
+  </apex:form>
+</apex:page>
